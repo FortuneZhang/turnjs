@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en" class="noie"> <!--<![endif]-->
+
+<head style="background-color: yellowgreen">
+
+  <title>Turnjs</title>
+  <meta name="viewport" content="width=1200" />
+  <meta name="keywords" content="page,flip,pages,effect,flipbook,flipboard,jquery,html5,book,magazine,newspaper,ipad,iphone,android,ios" />
+  <meta name="description" content="Turn.js makes a beautiful page turning effect using HTML5 and jQuery" />
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag "lib/jquery.ui.css", :media => "all" %>
+  <%= stylesheet_link_tag "lib/default.css", :media => "all" %>
+  <%= stylesheet_link_tag "web.css", :media => "all" %>
+
+  <%= javascript_include_tag "application" %>
+
+  <%= javascript_include_tag "lib/all.js" %>
+  <%= javascript_include_tag "lib/hash.js" %>
+  <%= javascript_include_tag "lib/turn.min.js" %>
+  <%= javascript_include_tag "lib/zoom.min.js" %>
+  <%= javascript_include_tag "lib/bookshelf.js" %>
+
+
+
+
+  <%= csrf_meta_tags %>
+
+</head>
+
+<body>
+
+<%= yield %>
+
+</body>
+</html>
