@@ -7,7 +7,7 @@ class TurnController < ApplicationController
   end
 
   def index2
-
+       @count = 11
   end
 
   def turn_post

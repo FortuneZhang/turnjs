@@ -1,34 +1,31 @@
-<div id="magazine">
-  <div >
+<div id="magazine" style="margin : auto auto ">
+  <div>
     <img src="assets/1.jpg" alt="loading">
 
   </div>
-  <div >
+  <div>
     <img src="assets/2.jpg" alt="loading">
   </div>
-  <div >
+  <div>
     <img src="assets/3.jpg" alt="loading">
   </div>
-  <div >
-    <img src="assets/3.jpg" alt="loading">
+  <div>
+    <img src="assets/4.jpg" alt="loading">
   </div>
+
+  <input type="hidden" id="page_count" value="<%= @count %>">
 
 </div>
 
 
 <script type="text/javascript">
 
-
-    var numberOfPages = 1000;
+    var beforehand_load_page_count = 4;
+    var page_difference_of_beforehand_load = 3
 
 
     $(window).ready(function () {
-
-        var screen_height = screen.width;
-        var screen_weight = screen.height;
-
-        console.log("screen_height :" + screen_height + "screen_weight :" + screen_weight);
-
+        console.log(get_device())
         $('#magazine').turn({
             width: 1152,
             height: 752,
@@ -38,40 +35,15 @@
             elevation: 50,
             when: {
                 turning: function (e, page, view) {
+
                 },
                 turned: function (e, page) {
-                    var current_page = $("#magazine").turn("page");
-                    var total_page = $('#magazine').turn("pages");
+                    beforehand_load.call(this);
 
-                    console.log('current_page->' + current_page + 'total_page->' + total_page)
-                    if (current_page > total_page - 3) {
-                        console.log("if invoke")
-                        for (var p = total_page + 1; p < total_page + 4; p += 1)
-                            load_pic_before_view(p, $(this))
-                    }
                 }
             }
         });
     });
 
-
-    $(window).bind('keydown', function (e) {
-        if (e.keyCode == 37)
-            $('#magazine').turn('previous');
-        else if (e.keyCode == 39)
-            $('#magazine').turn('next');
-    });
-
-
-    function load_pic_before_view(page, magazine) {
-        if (!magazine.turn('hasPage', page)) {
-            var element = $('<div />', {'class': 'page ' + ((page % 2 == 0) ? 'odd' : 'even'), 'id': 'page-' + page}).html('<i class="loader"></i>');
-
-            magazine.turn('addPage', element, page);
-            setTimeout(function () {
-                element.html('<img src="assets/' +page+ '.jpg" alt="loading" >');
-            }, 1000);
-        }
-    }
 
 </script>
